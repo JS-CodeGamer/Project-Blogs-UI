@@ -6,10 +6,12 @@ Technologies used in the three projects are:
 ## [Project Blogs Backendy](https://github.com/JS-CodeGamer/Project-Blogs-Backendy)
   - Django with django-rest-framework for making REST API's
   - PyJWT for token verification
+  - Used Django-Cors-Headers for allowing frontend-backend interaction.
 
 ## [Project Userify](https://github.com/JS-CodeGamer/Project-Userify)
   - Django with django-rest-framework for making REST API's
   - Django with django-rest-framework simple-jwt for token authentication and token genreation
+  - Used Django-Cors-Headers for allowing frontend-backend interaction.
 
 ## [Project Blogs UI](https://github.com/JS-CodeGamer/Project-Blogs-UI)
   - ReactJS with React-Router for frontend serving
@@ -34,6 +36,10 @@ TLDR:
   npm start
   ```
   
+For integrating backends [Project Blogs Backendy](https://github.com/JS-CodeGamer/Project-Blogs-Backendy) and [Project Userify](https://github.com/JS-CodeGamer/Project-Userify):
+  - Run the backend api microservices and allow the server through CORS settings in settings.py for both backends
+  - Use environment variables REACT_APP_USERS_API_URL and REACT_APP_USERS_API_URL to store the backend urls
+
 ## Future Endevours:
   - Try converting to native CSS or SCSS for styling
   - Make better error handeling for more detailed error messages
