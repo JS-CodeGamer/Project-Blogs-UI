@@ -1,71 +1,39 @@
-# Getting Started with Create React App
+# Project Blogs UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a ReactJS based frontend made in conjunction with backends [Project Blogs Backendy](https://github.com/JS-CodeGamer/Project-Blogs-Backendy) and [Project Userify](https://github.com/JS-CodeGamer/Project-Userify) to create a full stack web-application.
+Technologies used in the three projects are:
 
-## Available Scripts
+## [Project Blogs Backendy](https://github.com/JS-CodeGamer/Project-Blogs-Backendy)
+  - Django with django-rest-framework for making REST API's
+  - PyJWT for token verification
 
-In the project directory, you can run:
+## [Project Userify](https://github.com/JS-CodeGamer/Project-Userify)
+  - Django with django-rest-framework for making REST API's
+  - Django with django-rest-framework simple-jwt for token authentication and token genreation
 
-### `npm start`
+## [Project Blogs UI](https://github.com/JS-CodeGamer/Project-Blogs-UI)
+  - ReactJS with React-Router for frontend serving
+  - Bootstrap for styling
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation and Setup
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Project-Blogs-UI
+Follow these instructions to set up this project:
+  - Open your terminal / shell.
+  - Clone this repo using the url https://github.com/JS-CodeGamer/Project-Blogs-UI using commang `git clone <url>`
+  - Naviagte to the directory into which this reposetory is cloned using `cd ./Project-Blogs-UI`
+  - Install npm and NodeJS if not already installed
+  - Run `npm install` in the terminal after navigating to cloned repo
+  - Run `npm start` and the server will start at default port 3000
+TLDR:
+  Run the following code in your terminal after installing NodeJS.
+  ```
+  git clone https://github.com/JS-CodeGamer/Project-Blogs-UI
+  cd ./Project-Blogs-UI
+  npm install
+  npm start
+  ```
+  
+## Future Endevours:
+  - Try converting to native CSS or SCSS for styling
+  - Make better error handeling for more detailed error messages
+  - Try integrating animations into UI
