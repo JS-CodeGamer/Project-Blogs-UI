@@ -24,6 +24,7 @@ Follow these instructions to set up this project:
   - Install npm and NodeJS if not already installed
   - Run `npm install` in the terminal after navigating to cloned repo
   - Run `npm start` and the server will start at default port 3000
+
 TLDR:
   Run the following code in your terminal after installing NodeJS.
   ```
