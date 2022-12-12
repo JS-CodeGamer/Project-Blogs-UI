@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { NavLink, Outlet} from 'react-router-dom'
 import { users_backend } from 'utils/backends'
 import { isLoggedIn } from 'utils/helpers'
+import { profiledummydata } from 'utils/dummy_data'
 
 const Navbar = (props) => {
     const media_url=process.env.REACT_APP_USERS_API_URL
@@ -10,11 +11,13 @@ const Navbar = (props) => {
     });
 
     useEffect(() => {
-        users_backend('user/', {})
-        .then(res => setProfile(res.data))
-        .catch((err)=>{
-            console.error('err:', err);
-        });
+        // Uncomment for production deployment with backend
+        // users_backend('user/', {})
+        // .then(res => setProfile(res.data))
+        // .catch((err)=>{
+        //     console.error('err:', err);
+        // });
+        setProfile(profiledummydata);
     }, [])
     return (
         <>

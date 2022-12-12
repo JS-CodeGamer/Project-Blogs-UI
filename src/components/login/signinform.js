@@ -16,21 +16,23 @@ const SigninForm = (props) => {
     };
     const clickHandeler = (e) => {
         e.stopPropagation();
-        users_backend('signin/',
-        {
-            data:formData,
-            method:'post',
-            authHeader:false
-        })
-        .then(res => {
-                localStorage.setItem("access", res.data["access"])
-                localStorage.setItem("refresh", res.data["refresh"])
-                navigate(-1);
-        })
-        .catch((err)=>{
-            console.error('err:', err);
-            setstatusStr(err.response.data.message);
-        });
+        // Uncomment for production deployment with backend
+        // users_backend('signin/',
+        //     {
+        //         data:formData,
+        //         method:'post',
+        //         authHeader:false
+        //     })
+        // .then(res => {
+        //         localStorage.setItem("access", res.data["access"])
+        //         localStorage.setItem("refresh", res.data["refresh"])
+        //         navigate(-1);
+        // })
+        // .catch((err)=>{
+        //     console.error('err:', err);
+        //     setstatusStr(err.response.data.message);
+        // });
+        navigate(-1);
     }
 
     return (

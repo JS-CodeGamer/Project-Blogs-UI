@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { blogs_backend } from "utils/backends";
+import { bloglistdummydata } from "utils/dummy_data";
 
 
 const MyBlogs = (props) => {
@@ -20,11 +21,13 @@ const MyBlogs = (props) => {
     });
     useEffect(() => {
         // TODO: Implement error checking in response
-        blogs_backend(`blogs/u/?page%5Bnumber%5D=${curr}`, {authHeader:false})
-        .then(res => {
-            setRes(res.data);
-        })
-        .catch(err=>console.error(err));
+        // Uncomment for production deployment with backend
+        // blogs_backend(`blogs/u/?page%5Bnumber%5D=${curr}`, {authHeader:false})
+        // .then(res => {
+        //     setRes(res.data);
+        // })
+        // .catch(err=>console.error(err));
+        setRes(bloglistdummydata)
     }, [curr]);
 
     // format response for showing

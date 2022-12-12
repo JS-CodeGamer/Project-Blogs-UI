@@ -10,9 +10,11 @@ const NewBlog = () => {
 
     const clickHandeler = (e) => {
         e.stopPropagation();
-        blogs_backend(`create/`, {method:'post', data:formData})
-        .then((res)=>navigate(`/blog/${res.data.id}`))
-        .catch((err)=>console.error(err));
+        // Uncomment for production deployment with backend
+        // blogs_backend(`create/`, {method:'post', data:formData})
+        // .then((res)=>navigate(`/blog/${res.data.id}`))
+        // .catch((err)=>console.error(err));
+        navigate(`/blog/1`)
     }
     const handleOnChange = (e)=> {
         e.stopPropagation();

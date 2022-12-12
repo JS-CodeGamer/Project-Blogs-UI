@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { blogs_backend } from 'utils/backends';
+import { blogdummydata } from 'utils/dummy_data';
 
 
 const BlogEdit = () => {
@@ -13,12 +14,14 @@ const BlogEdit = () => {
     });
 
     useEffect(() => {
-        blogs_backend(`blog/${blogID}`, {})
-        .then(res=>setformData({
-            title: res.data.title,
-            content: res.data.content
-        }))
-        .catch(err=>console.error(err));
+        // Uncomment for production deployment with backend
+        // blogs_backend(`blog/${blogID}`, {})
+        // .then(res=>setformData({
+        //     title: res.data.title,
+        //     content: res.data.content
+        // }))
+        // .catch(err=>console.error(err));
+        setformData(blogdummydata)
     }, [blogID])
     const handleOnChange = (e)=> {
         e.stopPropagation();
@@ -27,13 +30,15 @@ const BlogEdit = () => {
     const clickHandeler = (e) => {
         e.stopPropagation();
         // TODO: Implement Unauthorised and error checking in response
-        blogs_backend(`blog/${blogID}`,
-        {
-            data:formData,
-            method:'put'
-        })
-        .then(res=>navigate(`/blog/${res.data.id}`))
-        .catch(err=>console.error(err));
+        // Uncomment for production deployment with backend
+        // blogs_backend(`blog/${blogID}`,
+        // {
+        //     data:formData,
+        //     method:'put'
+        // })
+        // .then(res=>navigate(`/blog/${res.data.id}`))
+        // .catch(err=>console.error(err));
+        navigate(`/blog/${res.data.id}`)
     }
 
     return (

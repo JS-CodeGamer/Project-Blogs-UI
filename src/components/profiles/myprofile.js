@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { users_backend } from 'utils/backends';
+import { profiledummydata } from 'utils/dummy_data';
 
 const MyProfile = () => {
     const media_url=process.env.REACT_APP_USERS_API_URL
@@ -10,11 +11,13 @@ const MyProfile = () => {
 
     useEffect(() => {
         setlargeScreen(window.matchMedia("(max-width: 768px)").matches);
-        users_backend('user/', {})
-        .then(res => setProfile(res.data))
-        .catch((err)=>{
-            console.error('err:', err);
-        });
+        // Uncomment for production deployment with backend
+        // users_backend('user/', {})
+        // .then(res => setProfile(res.data))
+        // .catch((err)=>{
+        //     console.error('err:', err);
+        // });
+        setProfile(profiledummydata)
     }, [])
 
     return (

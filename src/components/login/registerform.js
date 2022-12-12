@@ -20,17 +20,19 @@ const RegisterForm = (props) => {
         if (formData.username!==null && (formData.password === formData.confirm_password)) {
             // Signup with valid Data Input
             const {confirm_password, ...reqFromData} = formData;
-            users_backend('register/',
-            {
-                data:reqFromData,
-                method:'post',
-                authHeader:false
-            })
-            .then(res => props.setPageIsSignin(true))
-            .catch((err)=>{
-                console.error('err:', err)
-                setstatusStr(err.response.data.message);
-            });
+            // Uncomment for production deployment with backend
+            // users_backend('register/',
+            // {
+            //     data:reqFromData,
+            //     method:'post',
+            //     authHeader:false
+            // })
+            // .then(res => props.setPageIsSignin(true))
+            // .catch((err)=>{
+            //     console.error('err:', err)
+            //     setstatusStr(err.response.data.message);
+            // });
+            props.setPageIsSignin(true)
         } else {
             // Password DONT match, show error
             setstatusStr("Passwords don't match");

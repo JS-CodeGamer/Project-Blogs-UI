@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { blogs_backend, users_backend } from 'utils/backends';
+import { bloglistdummydata, profiledummydata } from 'utils/dummy_data';
 
 const Profile = () => {
     // Parse URL params
@@ -15,12 +16,14 @@ const Profile = () => {
     });
     const [smallScreen, setsmallScreen] = useState(false);
     useEffect(() => {
-        setsmallScreen(window.matchMedia("(max-width: 768px)").matches);
-        users_backend(`user/${userID}`, {authHeader:false})
-        .then(res => setProfile(res.data))
-        .catch((err)=>{
-            console.error('err:', err);
-        });
+        // Uncomment for production deployment with backend
+        // setsmallScreen(window.matchMedia("(max-width: 768px)").matches);
+        // users_backend(`user/${userID}`, {authHeader:false})
+        // .then(res => setProfile(res.data))
+        // .catch((err)=>{
+        //     console.error('err:', err);
+        // });
+        setProfile(profiledummydata);
     }, [userID])
 
 
@@ -36,11 +39,13 @@ const Profile = () => {
     });
     useEffect(() => {
         // TODO: Implement error checking in response
-        blogs_backend(`blogs/?page%5Bnumber%5D=${curr}`, {authHeader:false})
-        .then(res => {
-            setblogRes(res.data);
-        })
-        .catch(err=>console.error(err));
+        // Uncomment for production deployment with backend
+        // blogs_backend(`blogs/?page%5Bnumber%5D=${curr}`, {authHeader:false})
+        // .then(res => {
+        //     setblogRes(res.data);
+        // })
+        // .catch(err=>console.error(err));
+        setblogRes(bloglistdummydata)
     }, [curr]);
 
     // format blog data for showing

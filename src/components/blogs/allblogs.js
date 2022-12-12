@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { blogs_backend } from 'utils/backends';
+import { bloglistdummydata } from 'utils/dummy_data';
 
 const AllBlogs = (props) => {
     // Parse URL params
@@ -20,11 +21,13 @@ const AllBlogs = (props) => {
     });
     useEffect(() => {
         // TODO: Implement error checking in response
-        blogs_backend(`blogs/?page%5Bnumber%5D=${curr}`, {authHeader:false})
-        .then(res => {
-            setRes(res.data);
-        })
-        .catch(err=>console.error(err));
+        // Uncomment for production deployment with backend
+        // blogs_backend(`blogs/?page%5Bnumber%5D=${curr}`, {authHeader:false})
+        // .then(res => {
+        //     setRes(res.data);
+        // })
+        // .catch(err=>console.error(err));
+        setRes(bloglistdummydata);
     }, [curr]);
 
     // format response for showing
@@ -61,9 +64,9 @@ const AllBlogs = (props) => {
             })}
         </div>
         <div className="container my-3 d-flex flex-row justify-content-evenly">
-            <button type="button" className="btn btn-outline-dark" onClick={()=>setSParams(`page=${res.links.first}`)} >{'<<First'}</button>
+            <button type="button" className="btn btn-outline-dark" onClick={()=>setSParams(`page=${1}`)} >{'<<First'}</button>
             <button type="button"
-                onClick={()=>setSParams(`page=${res.links.prev}`)}
+                onClick={()=>setSParams(`page=${res.meta.pagination.page-1}`)}
                 className={"btn btn-outline-dark "+ (res.links.prev ? '':'disabled')}
             >
                 {'<prev'}
@@ -71,12 +74,12 @@ const AllBlogs = (props) => {
             <button type="button" className="btn btn-outline-dark" disabled> {res.meta.pagination.page} </button>
             <button
                 type="button"
-                onClick={()=>setSParams(`page=${res.links.next}`)}
+                onClick={()=>setSParams(`page=${res.meta.pagination.pages+1}`)}
                 className={"btn btn-outline-dark "+ (res.links.next ? '':'disabled')}
             >
                 {'next>'}
             </button>
-            <button type="button" className="btn btn-outline-dark" onClick={()=>setSParams(`page=${res.links.last}`)} >{'Last>>'}</button>
+            <button type="button" className="btn btn-outline-dark" onClick={()=>setSParams(`page=${res.meta.pagination.pages}`)} >{'Last>>'}</button>
         </div>
         </div>
     )

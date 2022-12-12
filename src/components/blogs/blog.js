@@ -2,6 +2,7 @@ import NotFound from "components/errors/notFound";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { blogs_backend } from "utils/backends";
+import { blogdummydata } from "utils/dummy_data";
 
 
 const Blog = (props) => {
@@ -15,9 +16,11 @@ const Blog = (props) => {
 
     useEffect(() => {
         // TODO: Implement error checking in response
-        blogs_backend(`blog/${blogID}`, {})
-        .then(res=>setBlog(res.data))
-        .catch(err=>console.error(err));
+        // Uncomment for production deployment with backend
+        // blogs_backend(`blog/${blogID}`, {})
+        // .then(res=>setBlog(res.data))
+        // .catch(err=>console.error(err));
+        setBlog(blogdummydata)
     }, [blogID])
 
     if (!blog.title || !blog.author || !blog.content) {
