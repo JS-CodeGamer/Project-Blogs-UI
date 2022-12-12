@@ -1,6 +1,8 @@
 // node_module imports
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// component css/scss
+import 'static/base.scss'
 // component imports
 import AboutCreator from 'components/aboutcreator/aboutcreator';
 

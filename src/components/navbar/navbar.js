@@ -62,10 +62,8 @@ const Navbar = (props) => {
             </div>
         </div>
         </nav>
-        <main>
-            <div className="container my-4 w-75">
-                {<Outlet/>}
-            </div>
+        <main className="container my-4 w-75 h-100">
+            {<Outlet/>}
         </main>
         </>
     )
