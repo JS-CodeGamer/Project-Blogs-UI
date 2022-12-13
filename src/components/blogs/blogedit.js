@@ -38,7 +38,7 @@ const BlogEdit = () => {
         // })
         // .then(res=>navigate(`/blog/${res.data.id}`))
         // .catch(err=>console.error(err));
-        navigate(`/blog/${res.data.id}`)
+        navigate(`/blog/1`)
     }
 
     return (
