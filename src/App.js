@@ -1,6 +1,6 @@
 // node_module imports
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 // component css/scss
 import 'static/base.scss'
 // component imports
@@ -28,7 +28,7 @@ import { RequireAuth }  from    'components/requireAuth/requireAuth';
 
 function App(props) {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route path='/' element={<Navbar/>}>
                     <Route index                        element={<AllBlogs/>}/>
@@ -44,7 +44,7 @@ function App(props) {
                 </Route>
                 <Route path="/signin"                   element={<Signin/>}/>
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 

@@ -16,12 +16,9 @@ const BlogEdit = () => {
     useEffect(() => {
         // Uncomment for production deployment with backend
         // blogs_backend(`blog/${blogID}`, {})
-        // .then(res=>setformData({
-        //     title: res.data.title,
-        //     content: res.data.content
-        // }))
+        // .then(res=>setformData({ res.data.data }))
         // .catch(err=>console.error(err));
-        setformData(blogdummydata)
+        setformData(blogdummydata.data)
     }, [blogID])
     const handleOnChange = (e)=> {
         e.stopPropagation();
@@ -50,7 +47,7 @@ const BlogEdit = () => {
             </div>
             <div className="mb-3">
                 <label htmlFor="content" className="form-label">Content</label>
-                <input type="text" className="form-control" id="content" name="content" value={formData.content} onChange={(e)=>handleOnChange(e)}/>
+                <textarea rows={16} className="form-control" id="content" name="content" value={formData.content} onChange={(e)=>handleOnChange(e)}/>
             </div>
             <div className="d-flex flex-row justify-content-center">
                 <button type="button" onClick={(e)=>clickHandeler(e)} className="btn btn-dark">Submit</button>

@@ -3,9 +3,19 @@ import { users_backend } from 'utils/backends';
 import { profiledummydata } from 'utils/dummy_data';
 
 const MyProfile = () => {
-    const media_url=process.env.REACT_APP_USERS_API_URL
+    const media_url=process.env.REACT_APP_USERS_API_URL?process.env.REACT_APP_USERS_API_URL:""
     const [profile, setProfile] = useState({
-        profile_pic:null
+        "username": "",
+        "last_login": null,
+        "email": "",
+        "first_name": "",
+        "middle_name": "",
+        "last_name": "",
+        "phone": "",
+        "age": "",
+        "gender": "",
+        "user_category": "",
+        "profile_pic": ''
     });
     const [largeScreen, setlargeScreen] = useState(false);
 

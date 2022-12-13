@@ -9,7 +9,7 @@ const AboutCreator = (props) => {
                 to write some of my Thoughts in. Which eventually extended to this website here
                 whose sole publishing the thoughts of any user (I added in user management as bonus).
             </p>
-            <p>
+            <div>
                 Well kepping the rant aside, currently, I am looking for Internships as of now and
                 here is a list of my skills do help me out if you are checking this website out, also
                 for seeing more of my works checkout my <a href='https://github.com/js-codegamer'>Github</a>:
@@ -61,7 +61,7 @@ const AboutCreator = (props) => {
                     </ul>
                 </li>
             </ul>
-            </p>
+            </div>
         </div>
     )
 }

@@ -5,7 +5,7 @@ import { isLoggedIn } from 'utils/helpers'
 import { profiledummydata } from 'utils/dummy_data'
 
 const Navbar = (props) => {
-    const media_url=process.env.REACT_APP_USERS_API_URL
+    const media_url=process.env.REACT_APP_USERS_API_URL?process.env.REACT_APP_USERS_API_URL:''
     const [profile, setProfile] = useState({
         profile_pic:null
     });

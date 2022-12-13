@@ -10,9 +10,19 @@ const Profile = () => {
     const curr = sParams.get('page')?parseInt(sParams.get('page')):0;
 
     // get profile data
-    const media_url=process.env.REACT_APP_USERS_API_URL
+    const media_url=process.env.REACT_APP_USERS_API_URL?process.env.REACT_APP_USERS_API_URL:""
     const [profile, setProfile] = useState({
-        profile_pic:null
+        "username": "",
+        "last_login": null,
+        "email": "",
+        "first_name": "",
+        "middle_name": "",
+        "last_name": "",
+        "phone": "",
+        "age": "",
+        "gender": "",
+        "user_category": "",
+        "profile_pic": ''
     });
     const [smallScreen, setsmallScreen] = useState(false);
     useEffect(() => {
@@ -29,13 +39,29 @@ const Profile = () => {
 
     // get blog data
     const [blogres, setblogRes]= useState({
-        links:{},
+        links:{
+            first:null,
+            last:null,
+            next:null,
+            prev:null,
+        },
         data:[{
-            title:"",
-            author:"",
-            content:""
+            type:'',
+            id:'',
+            attributes:{
+                title:"",
+                author:"",
+                content:"",
+                created_at:'',
+                updated_at:''
+            }
         }],
-        meta:{},
+        meta:{
+            pagination: {
+                page:1,
+                pages:1
+            }
+        },
     });
     useEffect(() => {
         // TODO: Implement error checking in response
@@ -93,13 +119,12 @@ const Profile = () => {
                 <ul className="list-group">
                     {blogres.data.map((blog)=>{
                         return (
-                            <li className="list-group-item d-flex justify-content-between align-items-start" key={`${blog.id}`}>
+                            <li className="list-group-item d-flex justify-content-between align-items-center" key={`${blog.id}`}>
                                 <div className="ms-2 me-auto">
-                                    <div className="fw-bold">{blog.title}</div>
-                                    {blog.content}
+                                    <div className="fw-bold">{format(blog.attributes.title, titlelinelength)}</div>
                                 </div>
-                                <div className="d-flex justify-content-end">
-                                    <Link to={`/blog/${blog.id}`} className="btn btn-dark m-1" style={{width:"45%"}}>Read</Link>
+                                <div className="d-flex justify-content-end ms-5">
+                                    <Link to={`/blog/${blog.id}`} className="btn btn-dark m-1">Read</Link>
                                 </div>
                             </li>
                         )
@@ -108,7 +133,7 @@ const Profile = () => {
                 <div className="container my-3 d-flex flex-row justify-content-evenly">
                     <button
                         type="button"
-                        onClick={()=>setSParams(`page=${blogres.links.prev}`)}
+                        onClick={()=>setSParams(`page=${blogres.meta.pagination.page-1}`)}
                         className={"btn btn-outline-dark "+ (blogres.links.prev ? '':'disabled')}
                     >
                         {'<prev'}
@@ -116,7 +141,7 @@ const Profile = () => {
                     <button type="button" className="btn btn-outline-dark" disabled> {blogres.meta.pagination.page} </button>
                     <button
                         type="button"
-                        onClick={()=>setSParams(`page=${blogres.links.next}`)}
+                        onClick={()=>setSParams(`page=${blogres.meta.pagination.page+1}`)}
                         className={"btn btn-outline-dark "+ (blogres.links.next ? '':'disabled')}
                     >
                         {'next>'}

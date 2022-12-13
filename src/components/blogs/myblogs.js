@@ -11,13 +11,29 @@ const MyBlogs = (props) => {
 
     // get data from backend
     const [res, setRes]= useState({
-        links:{},
+        links:{
+            first:null,
+            last:null,
+            next:null,
+            prev:null,
+        },
         data:[{
-            title:"",
-            author:"",
-            content:""
+            type:'',
+            id:'',
+            attributes:{
+                title:"",
+                author:"",
+                content:"",
+                created_at:'',
+                updated_at:''
+            }
         }],
-        meta:{},
+        meta:{
+            pagination: {
+                page:1,
+                pages:1
+            }
+        },
     });
     useEffect(() => {
         // TODO: Implement error checking in response
@@ -44,11 +60,11 @@ const MyBlogs = (props) => {
         <ul className="list-group">
             {res.data.map((blog)=>{
                 return (
-                    <li className="list-group-item d-flex justify-content-between align-items-start" key={`${blog.id}`}>
+                    <li className="list-group-item d-flex justify-content-between align-items-center" key={`${blog.id}`}>
                         <div className="ms-2 me-auto fw-bold">
-                            {format(blog.title, titlelinelength)}
+                            {format(blog.attributes.title, titlelinelength)}
                         </div>
-                        <div className="d-flex justify-content-between">
+                        <div className="d-flex justify-content-between ms-5">
                             <Link to={`/blog/${blog.id}`} className="btn btn-dark m-1" style={{width:"45%"}}>Read</Link>
                             <Link to={`/blog/edit/${blog.id}`} className="btn btn-dark m-1" style={{width:"45%"}}>Edit</Link>
                         </div>
@@ -57,9 +73,9 @@ const MyBlogs = (props) => {
             })}
         </ul>
         <div className="container my-3 d-flex flex-row justify-content-evenly">
-            <button type="button" className="btn btn-outline-dark" onClick={()=>setSParams(`page=${res.links.first}`)} >{'<<First'}</button>
+            <button type="button" className="btn btn-outline-dark" onClick={()=>setSParams(`page=1`)} >{'<<First'}</button>
             <button type="button"
-                onClick={()=>setSParams(`page=${res.links.prev}`)}
+                onClick={()=>setSParams(`page=${res.meta.pagination.page-1}`)}
                 className={"btn btn-outline-dark "+ (res.links.prev ? '':'disabled')}
             >
                 {'<prev'}
@@ -67,12 +83,12 @@ const MyBlogs = (props) => {
             <button type="button" className="btn btn-outline-dark" disabled> {'curr'} </button>
             <button
                 type="button"
-                onClick={()=>setSParams(`page=${res.links.next}`)}
+                onClick={()=>setSParams(`page=${res.meta.pagination.page+1}`)}
                 className={"btn btn-outline-dark "+ (res.links.next ? '':'disabled')}
             >
                 {'next>'}
             </button>
-            <button type="button" className="btn btn-outline-dark" onClick={()=>setSParams(`page=${res.links.last}`)} >{'Last>>'}</button>
+            <button type="button" className="btn btn-outline-dark" onClick={()=>setSParams(`page=${res.meta.pagination.pages}`)} >{'Last>>'}</button>
         </div>
         </div>
     )

@@ -30,7 +30,7 @@ const NewBlog = () => {
             </div>
             <div className="mb-3">
                 <label htmlFor="content" className="form-label">Content</label>
-                <input type="text" className="form-control" id="content" name="content" onChange={(e)=>handleOnChange(e)}/>
+                <textarea rows={16} className="form-control" id="content" name="content" onChange={(e)=>handleOnChange(e)}/>
             </div>
             <div className="d-flex flex-row justify-content-center">
                 <button type="button" onClick={(e)=>clickHandeler(e)} className="btn btn-dark">Create</button>

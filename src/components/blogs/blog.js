@@ -18,9 +18,9 @@ const Blog = (props) => {
         // TODO: Implement error checking in response
         // Uncomment for production deployment with backend
         // blogs_backend(`blog/${blogID}`, {})
-        // .then(res=>setBlog(res.data))
+        // .then(res=>setBlog(res.data.data))
         // .catch(err=>console.error(err));
-        setBlog(blogdummydata)
+        setBlog(blogdummydata.data)
     }, [blogID])
 
     if (!blog.title || !blog.author || !blog.content) {
@@ -52,7 +52,7 @@ const Blog = (props) => {
                 </Link>
             </div>)}
             <hr className="w-75"/>
-            <p className="word-wrap fs-3">
+            <p className="word-wrap fs-5">
                 {blog.content}
             </p>
         </div>

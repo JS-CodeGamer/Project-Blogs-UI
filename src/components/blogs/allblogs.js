@@ -11,13 +11,29 @@ const AllBlogs = (props) => {
 
     // get data from backend
     const [res, setRes]= useState({
-        links:{},
+        links:{
+            first:null,
+            last:null,
+            next:null,
+            prev:null,
+        },
         data:[{
-            title:"",
-            author:"",
-            content:""
+            type:'',
+            id:'',
+            attributes:{
+                title:"",
+                author:"",
+                content:"",
+                created_at:'',
+                updated_at:''
+            }
         }],
-        meta:{},
+        meta:{
+            pagination: {
+                page:1,
+                pages:1
+            }
+        },
     });
     useEffect(() => {
         // TODO: Implement error checking in response
@@ -49,13 +65,13 @@ const AllBlogs = (props) => {
                     <div className="col" key={`${blog.id}`}>
                     <div className="card">
                         <div className="card-body">
-                            <h5 className="card-title overflow-hidden text-center">{format(blog.title, titlelinelength)}</h5>
+                            <h5 className="card-title overflow-hidden text-center">{format(blog.attributes.title, titlelinelength)}</h5>
                             <h6 className="card-subtitle mb-2 text-muted text-center">
-                                <Link to={`/profile/${blog.author}`}>
-                                    {blog.author}
+                                <Link to={`/profile/${blog.attributes.author}`}>
+                                    {blog.attributes.author}
                                 </Link>
                             </h6>
-                            <p className="card-text overflow-hidden">{format(blog.content, contentlinelength*5)}</p>
+                            <p className="card-text overflow-hidden">{format(blog.attributes.content, contentlinelength*5)}</p>
                             <Link to={`/blog/${blog.id}`} className="btn btn-dark" style={{width:"100%"}}>Read</Link>
                         </div>
                     </div>
