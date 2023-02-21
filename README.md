@@ -1,5 +1,7 @@
 # Project Blogs UI
 
+Hosted at [https://js-codegamer.github.io/Project-Blogs-UI/](https://js-codegamer.github.io/Project-Blogs-UI/).
+
 This is a ReactJS based frontend made in conjunction with backends [Project Blogs Backendy](https://github.com/JS-CodeGamer/Project-Blogs-Backendy) and [Project Userify](https://github.com/JS-CodeGamer/Project-Userify) to create a full stack web-application.
 Technologies used in the three projects are:
 
